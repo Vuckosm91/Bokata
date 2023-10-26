@@ -20,7 +20,8 @@ const Hero = () => {
           <Button
             sx={{
               width: "280px",
-              padding: "10px",
+              height: "50px",
+              padding: "15px",
               marginRight: "30px",
               marginY: "20px",
               borderRadius: "30px",
@@ -30,7 +31,12 @@ const Hero = () => {
             ABOUT US
           </Button>
           <Button
-            sx={{ width: "280px", padding: "10px", borderRadius: "30px" }}
+            sx={{
+              width: "280px",
+              height: "50px",
+              marginY: "20px",
+              borderRadius: "30px",
+            }}
             variant="outlined"
           >
             CONTACT US
