@@ -1,4 +1,7 @@
 import Button from "@mui/material/Button";
+import { lightGreen } from "@mui/material/colors";
+
+const colorAbout = lightGreen[500];
 
 const AboutUs = () => {
   return (
@@ -21,8 +24,8 @@ const AboutUs = () => {
         </p>
         <Button
           variant="contained"
-          color="success"
           sx={{
+            backgroundColor: colorAbout,
             width: "280px",
             padding: "10px",
             marginRight: "30px",

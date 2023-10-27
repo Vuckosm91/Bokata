@@ -1,4 +1,7 @@
 import Button from "@mui/material/Button";
+import { lightBlue } from "@mui/material/colors";
+
+const colorHeroButton = lightBlue["A400"];
 
 const Hero = () => {
   return (
@@ -19,6 +22,7 @@ const Hero = () => {
         <div className="button1">
           <Button
             sx={{
+              backgroundColor: colorHeroButton,
               width: "280px",
               height: "50px",
               padding: "15px",
@@ -32,9 +36,11 @@ const Hero = () => {
           </Button>
           <Button
             sx={{
+              color: colorHeroButton,
               width: "280px",
               height: "50px",
               marginY: "20px",
+              border: "2px solid",
               borderRadius: "30px",
             }}
             variant="outlined"

@@ -118,7 +118,7 @@ a {
 .hero {
     display: flex;
     flex-direction: column;
-    width: 1780px;
+    width: 1920px;
     height: 1080px;
     background-image: url(/public/Hero/43f2f0b733974dab02cbd7d64660b1a9.jpeg);
     background-size: cover;
@@ -181,7 +181,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 1920px;
     height: 1080px;
     background-color: white;
  }
@@ -213,3 +213,65 @@ margin-right: 150px;
     color: white;
     font-size: 20px;
  }
+
+
+ /* ***************** Partners ******************** */
+
+ .partnersContainer {
+    display: flex;
+    width: 1920px;
+    height: 1415px;
+    background-color: black;
+    opacity: 0.1;
+ }
+
+
+ .partner {
+    display: flex;
+    width: 1920px;
+    height: 250px;
+    background-color: aliceblue;
+    justify-content: center;
+    flex-direction: row;
+    
+
+ }
+
+ .partnerIcon1 {
+    background-image: url(/public/Partners/Vector.svg);
+    background-repeat: no-repeat;
+    width: 78.325px;
+    height: 76.001px;
+    margin: 10px;
+    flex-shrink: 0;
+ }
+
+ .partnerIcon2 {    background-image: url(/public/Partners/Vector1.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 78.325px;
+    height: 76.001px;
+    margin: 10px;
+    margin-top: 20px;
+    flex-shrink: 0;}
+
+ .partnerIcon3 {    background-image: url(/public/Partners/Vector2.svg);
+    background-repeat: no-repeat;
+    width: 78.325px;
+    height: 76.001px;
+    margin: 10px;
+    flex-shrink: 0;}
+
+ .partnerIcon4 {    background-image: url(/public/Partners/Vector3.svg);
+    background-repeat: no-repeat;
+    width: 78.325px;
+    height: 76.001px;
+    margin: 10px;
+    flex-shrink: 0;}
+
+ .partnerIcon5 {    background-image: url(/public/Partners/Vector4.svg);
+    background-repeat: no-repeat;
+    width: 78.325px;
+    height: 76.001px;
+    margin: 10px;
+    flex-shrink: 0;}
