@@ -7,6 +7,8 @@ import {
   Typography,
 } from "@mui/material";
 import { lightGreen } from "@mui/material/colors";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const colorForm = lightGreen[600];
 
@@ -39,24 +41,65 @@ const buttonInlineStyleM = {
 };
 
 const FormBody = () => {
+  /* Validation */
+
+  const { register, handleSubmit } = useForm();
+
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const handleFormSubmit = (FormData: any) => {
+    let formDirty = false;
+
+    if (!FormData.name || !FormData.name.length) {
+      setNameError("Name is required");
+      formDirty = true;
+    } else {
+      setNameError("");
+    }
+
+    if (FormData.email || !FormData.email.length) {
+      setEmailError("Email is required");
+    } else setEmailError("");
+    if (!formDirty) {
+      console.log("form data is ", FormData);
+    } else {
+      console.log("Fix the validation");
+    }
+    return true;
+  };
+
   return (
     <div className="formBodyContainer">
-      <form className="formBody" noValidate autoComplete="off">
+      <form
+        onSubmit={handleSubmit(handleFormSubmit)}
+        className="formBody"
+        noValidate
+        autoComplete="off"
+      >
         <Typography align="right">Personal Information</Typography>
         <Stack direction={"row"}>
           <TextField
+            error={nameError && nameError.length ? true : false}
             fullWidth
             variant="outlined"
             placeholder="Name and Surname"
             style={formInlineStyle}
+            helperText={nameError}
+            id="name"
+            {...register("name")}
           />
         </Stack>
         <Stack direction={"row"}>
           <TextField
+            error={emailError && emailError.length ? true : false}
+            helperText={emailError}
             fullWidth
             variant="outlined"
             placeholder="Email"
+            id="email"
             style={formInlineStyle}
+            {...register("email")}
           />
         </Stack>
         <Stack direction={"row"}>
@@ -172,6 +215,7 @@ const FormBody = () => {
         ></FormControlLabel>
         <Stack direction={"column"} alignItems={"end"}>
           <Button
+            type="submit"
             color="success"
             variant="contained"
             style={buttonInlineStyleM}
