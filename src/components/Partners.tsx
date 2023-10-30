@@ -1,6 +1,7 @@
 const Partners = () => {
   return (
     <div className="partnersContainer">
+      <div className="AboutGraphic"></div>
       <div className="partner">
         <div className="partnerIcon1"></div>
         <div className="partnerIcon2"></div>

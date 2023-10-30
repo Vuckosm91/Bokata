@@ -217,12 +217,19 @@ margin-right: 150px;
 
  /* ***************** Partners ******************** */
 
+ .AboutGraphic {
+    display: flex;
+    background-color: aqua;
+    width: 1920px;
+    height: 1100px;
+ }
+
  .partnersContainer {
     display: flex;
+    flex-direction: column;
     width: 1920px;
     height: 1415px;
-    background-color: black;
-    opacity: 0.1;
+    background-color: rgba(255, 255, 255, 0.814);
  }
 
 
@@ -233,6 +240,7 @@ margin-right: 150px;
     background-color: aliceblue;
     justify-content: center;
     flex-direction: row;
+    
     
 
  }
@@ -275,3 +283,87 @@ margin-right: 150px;
     height: 76.001px;
     margin: 10px;
     flex-shrink: 0;}
+
+
+    /* *************** Form App ************** */
+
+
+    .formHeader {
+        width: 1920px;
+        height: 879px;
+        background-color: burlywood;
+    }
+
+    .bannerForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 975px;
+        height: 500px;
+        background-color: white;
+        border-top-right-radius: 800px;
+        border-bottom-right-radius: 800px;
+        position: absolute;
+        top: 620px;
+    } 
+
+    .bannerTextContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 150px;
+    }
+
+    .bannerText1, 
+    .bannerText2,
+    .bannerText3 {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .bannerText1 {
+    font-size: 40px;   
+    font-weight: 300;
+    text-align: left;
+    margin: 5px;     
+    }
+
+    .bannerText2 {
+        font-size: 40px;   
+        text-align: left;
+        font-weight: 700;
+        margin: 5px; 
+    }
+    
+
+    .bannerText3 {
+        font-size: 20px;
+        margin-top: 40px;
+        margin-left: 5px;
+    }
+
+    .formBodyContainer {
+        display: flex;
+        justify-content: center;
+        width: 1920px; 
+        height: 2254px;
+        background-color: rgba(255, 255, 255, 0.814);
+        padding-top: 450px;
+    }
+
+    .formBody {
+        width: 1324px;
+        border: 0;
+    }
+
+    .formBody fieldset {
+        border: 0;
+    }
+
+
+    .MuiOutlinedInput-root  {
+        color: rgb(72, 217, 171);
+    }
+
+
+
