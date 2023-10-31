@@ -7,13 +7,21 @@ import {
   Typography,
 } from "@mui/material";
 import { lightGreen } from "@mui/material/colors";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useFormik } from "formik";
+import { basicSchema } from "../../Validations/formValidation";
 
 const colorForm = lightGreen[600];
 
 const formInlineStyle = {
   border: "1px solid  #A0BD3C",
+  borderRadius: "40px",
+  fontFamily: "Roboto",
+  marginTop: "30px",
+  marginRight: "10px",
+};
+
+const formInlineStyleError = {
+  border: "1px solid  #fc2c03",
   borderRadius: "40px",
   fontFamily: "Roboto",
   marginTop: "30px",
@@ -40,85 +48,103 @@ const buttonInlineStyleM = {
   backgroundColor: "#A0BD3C",
 };
 
+const onSubmit = () => {
+  console.log("submitet");
+};
+
 const FormBody = () => {
   /* Validation */
 
-  const { register, handleSubmit } = useForm();
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      birthday: "",
+    },
+    validationSchema: basicSchema,
+    onSubmit,
+  });
 
-  const [nameError, setNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-
-  const handleFormSubmit = (FormData: any) => {
-    let formDirty = false;
-
-    if (!FormData.name || !FormData.name.length) {
-      setNameError("Name is required");
-      formDirty = true;
-    } else {
-      setNameError("");
-    }
-
-    if (FormData.email || !FormData.email.length) {
-      setEmailError("Email is required");
-    } else setEmailError("");
-    if (!formDirty) {
-      console.log("form data is ", FormData);
-    } else {
-      console.log("Fix the validation");
-    }
-    return true;
-  };
+  console.log(formik.errors);
 
   return (
     <div className="formBodyContainer">
       <form
-        onSubmit={handleSubmit(handleFormSubmit)}
         className="formBody"
         noValidate
         autoComplete="off"
+        onSubmit={formik.handleSubmit}
       >
         <Typography align="right">Personal Information</Typography>
         <Stack direction={"row"}>
           <TextField
-            error={nameError && nameError.length ? true : false}
-            fullWidth
-            variant="outlined"
-            placeholder="Name and Surname"
-            style={formInlineStyle}
-            helperText={nameError}
+            value={formik.values.name}
+            onChange={formik.handleChange}
             id="name"
-            {...register("name")}
-          />
-        </Stack>
-        <Stack direction={"row"}>
-          <TextField
-            error={emailError && emailError.length ? true : false}
-            helperText={emailError}
+            type="string"
             fullWidth
-            variant="outlined"
-            placeholder="Email"
-            id="email"
-            style={formInlineStyle}
-            {...register("email")}
+            variant={"outlined"}
+            color="error"
+            placeholder="Name and Surname"
+            style={
+              formik.errors.name && formik.touched.name
+                ? formInlineStyleError
+                : formInlineStyle
+            }
           />
+          {formik.errors.name && formik.touched.name ? (
+            <p className="formError">{formik.errors.name}</p>
+          ) : null}
         </Stack>
         <Stack direction={"row"}>
           <TextField
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            id="email"
+            type="email"
+            fullWidth
+            variant={"outlined"}
+            color="error"
+            placeholder="Email"
+            style={
+              formik.errors.name && formik.touched.name
+                ? formInlineStyleError
+                : formInlineStyle
+            }
+          />
+          {formik.errors.email && formik.touched.email ? (
+            <p className="formError">{formik.errors.email}</p>
+          ) : null}
+        </Stack>
+        <Stack direction={"row"}>
+          <TextField
+            value={formik.values.birthday}
+            onChange={formik.handleChange}
+            id="birthday"
+            type="date"
             fullWidth
             placeholder="Date of birth"
-            variant="outlined"
-            style={formInlineStyle}
+            variant={"outlined"}
+            color="error"
+            style={
+              formik.errors.name && formik.touched.name
+                ? formInlineStyleError
+                : formInlineStyle
+            }
           />
+          {formik.errors.birthday && formik.touched.birthday ? (
+            <p className="formError">{formik.errors.birthday}</p>
+          ) : null}
         </Stack>
         <Stack direction={"row"}>
           <TextField
             fullWidth
             variant="outlined"
-            placeholder="Adress"
+            placeholder="Address"
             style={formInlineStyle}
           />
         </Stack>
-        <Stack direction={"row"}>
+        <Stack marginBottom={15} direction={"row"}>
           <TextField
             variant="outlined"
             placeholder="Post code"
@@ -131,12 +157,7 @@ const FormBody = () => {
             style={formInlineStyle}
           />
         </Stack>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+
         <Typography align="right">Employment Information</Typography>
 
         <Stack direction={"row"}>
@@ -163,7 +184,7 @@ const FormBody = () => {
             style={formInlineStyle}
           />
         </Stack>
-        <Stack direction={"row"}>
+        <Stack marginBottom={20} direction={"row"}>
           <TextField
             fullWidth
             variant="outlined"
@@ -171,12 +192,6 @@ const FormBody = () => {
             style={formInlineStyle}
           />
         </Stack>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <Typography align="right">File upload</Typography>
         <Stack direction={"row-reverse"}>
           <TextField

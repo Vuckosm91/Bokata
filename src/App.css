@@ -360,10 +360,9 @@ margin-right: 150px;
         border: 0;
     }
 
-
-    .MuiOutlinedInput-root  {
-        color: rgb(72, 217, 171);
+    .formError {
+        font-size: 24px;
+        color: tomato;
     }
-
 
 
