@@ -4,7 +4,7 @@ const nav_items = [
     {id:2, title: "About us", link: "/"},
     {id:3, title: "Services", link: "/"},
     {id:4, title: "Projects", link: "/"},
-    {id:5, title: "Career", link: "/"},
+    {id:5, title: "Career", link: "/form"},
     {id:6, title: "Contact", link: "/"},
 ]
 

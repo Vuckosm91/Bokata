@@ -9,7 +9,6 @@ const Partners = () => {
         <div className="partnerIcon4"></div>
         <div className="partnerIcon5"></div>
       </div>
-      Icons
     </div>
   );
 };

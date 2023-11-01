@@ -14,7 +14,7 @@ const colorForm = lightGreen[600];
 
 const formInlineStyle = {
   border: "1px solid  #A0BD3C",
-  borderRadius: "40px",
+  borderRadius: "20px",
   fontFamily: "Roboto",
   marginTop: "30px",
   marginRight: "10px",
@@ -22,7 +22,7 @@ const formInlineStyle = {
 
 const formInlineStyleError = {
   border: "1px solid  #fc2c03",
-  borderRadius: "40px",
+  borderRadius: "20px",
   fontFamily: "Roboto",
   marginTop: "30px",
   marginRight: "10px",
@@ -30,7 +30,7 @@ const formInlineStyleError = {
 
 const formInlineStyleM = {
   border: "1px solid  #A0BD3C",
-  borderRadius: "40px",
+  borderRadius: "20px",
   fontFamily: "Roboto",
   marginTop: "30px",
   marginRight: "10px",
@@ -107,7 +107,7 @@ const FormBody = () => {
             color="error"
             placeholder="Email"
             style={
-              formik.errors.name && formik.touched.name
+              formik.errors.email && formik.touched.email
                 ? formInlineStyleError
                 : formInlineStyle
             }
@@ -127,7 +127,7 @@ const FormBody = () => {
             variant={"outlined"}
             color="error"
             style={
-              formik.errors.name && formik.touched.name
+              formik.errors.birthday && formik.touched.birthday
                 ? formInlineStyleError
                 : formInlineStyle
             }
